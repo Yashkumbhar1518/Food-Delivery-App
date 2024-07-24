@@ -11,7 +11,7 @@ const Foodcard = () => {
           
         </img>
         <div className="card-body">
-          <h5 className="card-title">Card title</h5>
+          <h5 className="card-title">CARD TITLE</h5>
           <p className="card-text">
            This is important text
           </p>
