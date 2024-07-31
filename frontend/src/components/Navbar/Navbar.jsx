@@ -7,7 +7,7 @@ const Navbar = () => {
     <div>
       <nav className="navbar navbar-expand-lg ">
   <div className="container-fluid">
-    <a className="navbar-brand fst-italic" to="/">ChicagoCafe</a>
+    <a className="navbar-brand fst-italic" href="/">ChicagoCafe</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -27,7 +27,7 @@ const Navbar = () => {
       <div className="basket">
       <i class="fa-solid fa-cart-shopping fa-xl " style={{"color": "#e56d0b"}}></i></div>
       
-      <Link className='btn-signup' to='/login'>Sign Up</Link>
+      <Link className='btn-signup' to='/signup'>Sign Up</Link>
     </div>
   </div>
 </nav>

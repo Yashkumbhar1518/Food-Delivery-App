@@ -1,13 +1,16 @@
 const mongoose = require("mongoose");
-const mongoURI = "mongodb+srv://Yash:SbegDv!SEhY6fPs@atlascluster.gxpo6ly.mongodb.net/ChicagoFood";
-const mongoDB = async() => {
-  try{
-   await mongoose.connect(mongoURI);
-        console.log("Database Conneceted");
-        
-  }
-  catch(err){
-    console.log(err)
+
+const mongoURI =
+  "mongodb+srv://Yash:SbegDv!SEhY6fPs@atlascluster.gxpo6ly.mongodb.net/ChicagoFood?retryWrites=true&w=majority&appName=AtlasCluster";
+
+const mongoDB = async () => {
+  try {
+    await mongoose.connect(mongoURI);
+
+    console.log("Database Connected"); 
+  } catch (err) {
+    console.log(err);
   }
 };
+
 module.exports = mongoDB;
