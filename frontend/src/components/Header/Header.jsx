@@ -3,7 +3,7 @@ import './Header.css'
 // import backgroundImage from '../images/header.png'
 const Header = () => { 
   return (
-    <div>
+    <div className='header-container'>
       <header className="header" >
       <div className="header-content">
         <h1>Grab your hunger by our delicious menu</h1>

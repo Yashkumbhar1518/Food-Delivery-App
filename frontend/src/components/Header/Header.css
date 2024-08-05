@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 .header {
-    margin-top: 20px;
     padding:30px;
     background-image: url('../images/header.png');
     background-size:cover;
     background-position:center;
-    height: 70vh;
+    height:100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,10 +12,14 @@
     color: white;
     position: relative;
     border-radius: 50px 50px;
-    margin: 10px 40px;
+    z-index: -1;
   }
   
-  
+  .header-container{
+    height:100vh;
+    max-height: 100vh;
+    padding: 90px 80px 80px 80px ;
+  }
   
   .header-content {
     z-index: 1;
@@ -35,9 +38,6 @@
   
   /* Responsive styling */
   @media (max-width: 768px) {
-    .header {
-      height: 50vh;
-    }
   
     .header h1 {
       font-size: 2rem;
@@ -46,11 +46,18 @@
     .header p {
       font-size: 1rem;
     }
+    .header-container{
+      padding:70px 30px 30px 30px
+    }
   }
   
   @media (max-width: 480px) {
     .header h1 {
       font-size: 1.5rem;
+    }
+    .header-container{
+      padding: 70px 20px 0px 20px ;
+      max-height:50vh;
     }
   
     .header p {

@@ -1,25 +1,82 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './Login.css'
+import React, { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
+import "./Login.css";
 const Login = () => {
+  const [credentials, setcredentials] = useState({ email: "", password: "" });
+  let navigate = useNavigate();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/loginuser`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: credentials.email,
+          password: credentials.password,
+        }),
+      });
+      const json = await response.json();
+      console.log(json);
+
+      if (!json.success) {
+        toast.warn(json.message, {
+          position: "bottom-center",
+          
+        });
+      } else {
+        toast.success(
+          json.message + " wait for few seconds it will redirect to home",
+          {
+            position: "bottom-center",
+           
+            onClose: () => {
+              localStorage.setItem("authToken" ,json.authToken)
+              console.log(localStorage.getItem("authToken"))
+              navigate("/");
+            },
+            
+          }
+        );
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const onChange = (e) => {
+    setcredentials({ ...credentials, [e.target.name]: e.target.value });
+  };
+
   return (
-    <div className="form-container ">
-       <form className="form-contain">
+    <div className="form-container " onSubmit={handleSubmit}>
+      <form className="form-contain">
         <h1 className="fst-italic heading">ChicagoCafe</h1>
         <div className="mb-3">
-          <label for="exampleInputEmail1" className="form-label">
+          <label htmlFor="exampleInputEmail1" className="form-label">
             Email address
           </label>
-          <input type="email" className="form-control"></input>
+          <input
+            type="email"
+            className="form-control"
+            name="email"
+            value={credentials.email}
+            onChange={onChange}
+          ></input>
         </div>
         <div className="mb-3">
-          <label for="exampleInputPassword1" className="form-label">
+          <label htmlFor="exampleInputPassword1" className="form-label">
             Password
           </label>
           <input
             type="password"
             className="form-control"
             id="exampleInputPassword1"
+            name="password"
+            value={credentials.password}
+            onChange={onChange}
           ></input>
         </div>
         <button type="submit" className="submit">
@@ -32,8 +89,9 @@ const Login = () => {
           </Link>
         </p>
       </form>
+      <ToastContainer autoClose={1000}/>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

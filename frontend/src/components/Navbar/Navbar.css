@@ -17,6 +17,11 @@
     justify-content: space-between;
     align-items: center;
     /* border-bottom: 1px solid #ddd; */
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    max-height:80px;
   }
   
   .container-fluid {
@@ -95,10 +100,26 @@
     padding: 20px;
     /* width: 1vw; */
   }
-  
+  @media (max-width:480px){
+    .collapse.navbar-collapse{
+      margin:0;
+      width: 100vw !important;
+    }
+    .container-fluid{
+      margin: 0;
+      background-color: white;
+    }
+    .btn-signup{
+      margin-bottom: 100px;
+    }
+  }
   
   /* Responsive styling */
   @media (max-width: 768px) {
+    .navbar{
+      padding: 10px;
+      max-height: 70px;
+    }
     .navbar-toggler {
       display: block;
     }
@@ -117,7 +138,9 @@
       flex-direction: column;
       width: 100%;
     }
-  
+    .navbar .navbar-brand{
+      font-size: 1.5rem;
+    }
     .nav-item {
       margin: 10px 0;
       text-decoration: none;

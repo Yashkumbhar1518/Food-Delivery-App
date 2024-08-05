@@ -2,9 +2,9 @@ import React from 'react'
 import './Footer.css'
 const Footer = () => {
   return (
-    <div className="footer-container">
+    <div className="footer-container" id='contact'>
       <div className="footleft">
-      <a className="navbar-brand fst-italic" to="/">ChicagoCafe</a> 
+      <a className="navbar-brand fst-italic" href="/">ChicagoCafe</a> 
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam sunt amet sit quod eos, quibusdam inventore facere velit quia reprehenderit recusandae iure at omnis molestias error mollitia voluptate dicta voluptatem?</p>
         <div className="icons">
         <i class="fa-brands fa-facebook" style={{"color": "#ff932e"}}></i>
