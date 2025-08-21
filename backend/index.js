@@ -3,8 +3,8 @@ const app = express()
 const mongoDB = require('./db')
 mongoDB();
 app.get('/',(req , res) =>{
-    res.send("Hello")
-}).listen(5000)
+    res.send("Backend Running ")
+})
 
 app.use((req,res,next)=>{
     res.setHeader("Access-Control-Allow-Origin","http://localhost:3000")
@@ -19,4 +19,6 @@ app.use((req,res,next)=>{
 app.use(express.json())
 app.use("/api/",require("./routes/userRoute"))
 app.use("/api/",require("./routes/menuRouter"))
-app.listen(4000, ()=>console.log("Server at 4000"))
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, ()=>console.log("Server at port ${PORT}"))
