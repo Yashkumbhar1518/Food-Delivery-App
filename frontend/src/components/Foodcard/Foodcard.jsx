@@ -4,12 +4,13 @@ import "./Foodcard.css";
 const Foodcard = () => {
   const [menu, setMenu] = useState([]);
   const [category , setCategory] = useState("All");
+  const API_URL = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
     async function fetchMenu() {
       console.log(process.env);
       try {
-        const res = await fetch(`${process.env.REACT_APP_BASE_URL}/api/getmenu`);
+        const res = await fetch(`${API_URL}/api/getmenu`);
         const data = await res.json();
         setMenu(data.data);
       } catch (error) {
