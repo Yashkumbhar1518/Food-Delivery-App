@@ -4,11 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 const Login = () => {
   const [credentials, setcredentials] = useState({ email: "", password: "" });
+  const API_URL = process.env.REACT_APP_BASE_URL;
   let navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/loginuser`, {
+      const response = await fetch(`${API_URL}/api/loginuser`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
