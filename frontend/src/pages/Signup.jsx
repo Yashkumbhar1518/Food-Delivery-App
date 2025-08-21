@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 
 function Signup() {
   const [credentials , setcredentials] = useState({name:'' , email:'',password:''})
+  const API_URL = process.env.REACT_APP_BASE_URL;
   const handleSubmit = async(e) =>{
     e.preventDefault();
     try{
-    const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/createuser`,{
+    const response = await fetch(`${API_URL}/api/createuser`,{
       method : 'POST',
       headers : {
         'Content-Type' : 'application/json'
